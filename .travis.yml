@@ -18,19 +18,24 @@ before_install:
   
 #######################################################################
 before_script:
-  # Check what octave packages we have installed
+  # Check for Octave installation
   - octave --version
+  # Test that no exit conditions are used in the script
+  - ! grep "exit" test_script.m
+  # Add final exit condition
   - echo -e "\nexit(0)" >> test_script.m
   
 #######################################################################
 script:
-  - octave -q --traditional --echo-commands --eval "test_script; exit(1);"
+  # Run Octave: if the script runs correctly, exit code should
+  #             be 0, otherwise build fails   
+  - octave -q --traditional --eval "test_script; exit(1);"
   
 #######################################################################
 # after_script:
 #  - if [ $? -eq 1 ]; then
-#        echo "OCTAVE -> Script FAILED"
+#        echo "OCTAVE -> Script FAILED";
 #    else
-#        echo "OCTAVE -> Script OK"
+#        echo "OCTAVE -> Script OK";
 #    fi
   
