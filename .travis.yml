@@ -23,11 +23,10 @@ before_script:
   
 #######################################################################
 script:
-  - octave -q --no-gui --traditional test_script.m
-  - exit
-  - if [ $? -eq 0 ]; then
-        echo OK
-    else
+  - octave -q --no-gui --traditional -eval "test_script.m; exit(1)"
+  - if [ $? -eq 1 ]; then
         echo FAIL
+    else
+        echo OK
     fi;
   
