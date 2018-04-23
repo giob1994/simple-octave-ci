@@ -20,10 +20,11 @@ before_install:
 before_script:
   # Check what octave packages we have installed
   - octave --version
+  - echo -e "\nexit(0)" >> test_script.m
   
 #######################################################################
 script:
-  - octave -q --no-gui --traditional --eval "test_script.m; exit(1)"
+  - octave -q --no-gui --traditional --eval test_script.m; exit(1);
   - if [ $? -eq 1 ]; then
         echo FAIL
     else

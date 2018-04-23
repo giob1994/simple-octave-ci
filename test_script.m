@@ -7,4 +7,3 @@ c = a*b';
 
 disp(c)
 
-exit(0)
