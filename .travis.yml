@@ -21,7 +21,7 @@ before_script:
   # Check for Octave installation
   - octave --version
   # Test that no exit conditions are used in the script
-  - ! grep "exit" test_script.m
+  - '! grep "exit" test_script.m'
   # Add final exit condition
   - echo -e "\nexit(0)" >> test_script.m
   
