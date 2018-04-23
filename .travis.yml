@@ -1,0 +1,27 @@
+language: java
+
+os:
+  - linux
+  
+notifications:
+  email: false
+
+#######################################################################
+cache:
+  # Downloading octave takes a while, so let's cache apt
+  apt: true
+  
+# Command to install dependencies
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y octave
+  
+#######################################################################
+before_script:
+  # Check what octave packages we have installed
+  - octave --version
+  
+#######################################################################
+script:
+  - octave --no-gui --traditional test_script.m;
+  
