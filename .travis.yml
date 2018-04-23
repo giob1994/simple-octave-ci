@@ -19,11 +19,12 @@ before_install:
 #######################################################################
 before_script:
   # Check what octave packages we have installed
-  #- octave --version
+  - octave --version
   
 #######################################################################
 script:
-  - octave --no-gui -q -x --traditional test_script.m
+  - octave -q --no-gui --traditional test_script.m
+  - exit
   - if [ $? -eq 0 ]; then
         echo OK
     else
