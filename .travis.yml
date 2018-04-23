@@ -24,10 +24,13 @@ before_script:
   
 #######################################################################
 script:
-  - octave -q --traditional --eval "test_script; exit(1);"
-  - if [ $? -eq 1 ]; then
-        echo "OCTAVE -> Script FAILED"
-    else
-        echo "OCTAVE -> Script OK"
-    fi;
+  - octave -q --traditional --echo-commands --eval "test_script; exit(1);"
+  
+#######################################################################
+# after_script:
+#  - if [ $? -eq 1 ]; then
+#        echo "OCTAVE -> Script FAILED"
+#    else
+#        echo "OCTAVE -> Script OK"
+#    fi
   
