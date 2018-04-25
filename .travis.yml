@@ -29,12 +29,13 @@ before_script:
   - '! grep "exit" ./test/runtests.m'
   # Add final exit condition
   - echo -e "\nexit(0)" >> ./test/runtests.m
+  - cd test
   
 #######################################################################
 script:
   # Run Octave: if the script runs correctly, exit code should
   #             be 0, otherwise build fails   
-  - octave -q --traditional --eval "run(\"test/runtests.m\"); exit(1);"
+  - octave -q --traditional --eval "runtests; exit(1);"
   
 #######################################################################
 # after_script:
