@@ -4,7 +4,7 @@
 % ##################################################
 
 % Load directory
-dir ..\TEST
+dir ../test
 
 % Run the main.m file
 run('main.m')
