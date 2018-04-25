@@ -7,4 +7,4 @@
 dir ../test
 
 % Run the main.m file
-run('main.m')
+run("main.m")
