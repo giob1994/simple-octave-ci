@@ -6,10 +6,7 @@
 pwd()
 
 % Load directory
-dir ../
-
-%path()
-
+cd ../
 
 % Run the main.m file
 run("main.m")
