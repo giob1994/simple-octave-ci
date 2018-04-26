@@ -6,5 +6,7 @@
 % Load directory
 dir ../test
 
+path()
+
 % Run the main.m file
-main
+run("main")
